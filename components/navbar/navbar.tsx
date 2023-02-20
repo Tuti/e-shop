@@ -7,7 +7,9 @@ const roboto = Roboto({ weight: '400', subsets: ['latin'] });
 
 export default function Navbar() {
   const [menuActive, setMenuActive] = useState(false);
-  function handleHamburgerClick() {}
+  function handleHamburgerClick() {
+    setMenuActive(!menuActive);
+  }
 
   return (
     <nav className={`${styles['nav']}`}>
@@ -22,9 +24,22 @@ export default function Navbar() {
       <Link className={`${styles['nav-branding']}`} href="#">
         Tuti Store
       </Link>
-      <ul className={`${styles['nav-menu']}`}>
+      <ul
+        className={
+          menuActive
+            ? `${styles['nav-menu']} ${styles['active']}`
+            : `${styles['nav-menu']}`
+        }
+      >
         <li>
-          <Link href="#">Home</Link>
+          <Link
+            href="#"
+            onClick={() => {
+              setMenuActive(!menuActive);
+            }}
+          >
+            Home
+          </Link>
         </li>
         <li>
           <Link href="../clothing">Clothing</Link>
