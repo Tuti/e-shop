@@ -4,6 +4,8 @@ import { Roboto } from '@next/font/google';
 import { useState } from 'react';
 import SearchIcon from '../icons/search/search';
 import ShoppingCartIcon from '../icons/cart/shopping-cart';
+import MenuIcon from '../icons/menu/menu';
+import CloseMenuIcon from '../icons/close-menu/close-menu';
 
 const roboto = Roboto({ weight: '400', subsets: ['latin'] });
 
@@ -21,9 +23,12 @@ export default function Navbar() {
         className={`${styles['hamburger-menu']}`}
         onClick={handleHamburgerClick}
       >
-        <span className={styles.bar}> </span>
-        <span className={styles.bar}> </span>
-        <span className={styles.bar}> </span>
+        <div className={styles['menu-icon-wrapper']}>
+          <MenuIcon></MenuIcon>
+        </div>
+        <div className={styles['menu-icon-wrapper']}>
+          <CloseMenuIcon></CloseMenuIcon>
+        </div>
       </div>
       <Link className={`${styles['nav-branding']}`} href="#">
         {STORE_NAME}
