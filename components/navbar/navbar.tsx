@@ -1,11 +1,12 @@
-import Link from 'next/link';
-import styles from './navbar.module.css';
-import { Roboto } from '@next/font/google';
 import { useState } from 'react';
+import { Roboto } from '@next/font/google';
+import Link from 'next/link';
+
 import SearchIcon from '../icons/search/search';
 import ShoppingCartIcon from '../icons/cart/shopping-cart';
 import MenuIcon from '../icons/menu/menu';
 import CloseMenuIcon from '../icons/close-menu/close-menu';
+import styles from './navbar.module.css';
 
 const roboto = Roboto({ weight: '400', subsets: ['latin'] });
 
