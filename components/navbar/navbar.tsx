@@ -23,11 +23,23 @@ export default function Navbar() {
         className={`${styles['hamburger-menu']}`}
         onClick={handleHamburgerClick}
       >
-        <div className={styles['menu-icon-wrapper']}>
-          <MenuIcon></MenuIcon>
+        <div
+          className={
+            menuActive
+              ? `${styles['menu-icon-wrapper']} ${styles['inactive']}`
+              : `${styles['menu-icon-wrapper']}`
+          }
+        >
+          <MenuIcon fill={'white'}></MenuIcon>
         </div>
-        <div className={styles['menu-icon-wrapper']}>
-          <CloseMenuIcon></CloseMenuIcon>
+        <div
+          className={
+            menuActive
+              ? `${styles['menu-icon-wrapper']}`
+              : `${styles['menu-icon-wrapper']} ${styles['inactive']}`
+          }
+        >
+          <CloseMenuIcon fill={'white'}></CloseMenuIcon>
         </div>
       </div>
       <Link className={`${styles['nav-branding']}`} href="#">
@@ -40,7 +52,7 @@ export default function Navbar() {
             : `${styles['nav-menu']}`
         }
       >
-        <li>
+        <li className={styles['nav-link']}>
           <Link
             href="#"
             onClick={() => {
@@ -50,13 +62,16 @@ export default function Navbar() {
             Home
           </Link>
         </li>
-        <li>
+        <li className={styles['nav-link']}>
+          {' '}
           <Link href="../clothing">Clothing</Link>
         </li>
-        <li>
+        <li className={styles['nav-link']}>
+          {' '}
           <Link href={'../gear'}>Gear</Link>
         </li>
-        <li>
+        <li className={styles['nav-link']}>
+          {' '}
           <Link href={'../all-products'}>All Products</Link>
         </li>
       </ul>

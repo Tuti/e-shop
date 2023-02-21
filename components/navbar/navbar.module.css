@@ -13,6 +13,7 @@
 }
 
 .nav-branding {
+  font-weight: bold;
   color: white;
 }
 
@@ -47,6 +48,11 @@
   left: 0;
 }
 
+.nav-link {
+  color: white;
+  padding: 0.25rem;
+}
+
 .search-cart {
   display: flex;
   justify-content: center;
@@ -54,4 +60,9 @@
   right: 0;
   padding: 0 1rem;
   gap: 0.5rem;
+  cursor: pointer;
+}
+
+.menu-icon-wrapper.inactive {
+  display: none;
 }
