@@ -2,8 +2,12 @@ import Link from 'next/link';
 import styles from './navbar.module.css';
 import { Roboto } from '@next/font/google';
 import { useState } from 'react';
+import SearchIcon from '../icons/search/search';
+import ShoppingCartIcon from '../icons/cart/shopping-cart';
 
 const roboto = Roboto({ weight: '400', subsets: ['latin'] });
+
+const STORE_NAME: string = 'Store';
 
 export default function Navbar() {
   const [menuActive, setMenuActive] = useState(false);
@@ -22,7 +26,7 @@ export default function Navbar() {
         <span className={styles.bar}> </span>
       </div>
       <Link className={`${styles['nav-branding']}`} href="#">
-        Tuti Store
+        {STORE_NAME}
       </Link>
       <ul
         className={
@@ -51,6 +55,10 @@ export default function Navbar() {
           <Link href={'../all-products'}>All Products</Link>
         </li>
       </ul>
+      <div className={`${styles['search-cart']}`}>
+        <SearchIcon fill={'white'}></SearchIcon>
+        <ShoppingCartIcon fill={'white'}></ShoppingCartIcon>
+      </div>
     </nav>
   );
 }
