@@ -3,13 +3,11 @@ import { Roboto } from '@next/font/google';
 
 const roboto = Roboto({ weight: '400', subsets: ['latin'] });
 
-export default function TopBanner() {
-  const MESSAGE: string = 'Your top banner message goes here!';
-
+export default function TopBanner(props: any) {
   return (
     <>
       {' '}
-      <h3 className={styles['message']}>{MESSAGE}</h3>
+      <h3 className={styles['message']}>{props.message}</h3>
     </>
   );
 }

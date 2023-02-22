@@ -1,9 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 import Head from 'next/head';
 import Image from 'next/image';
 import { Inter } from '@next/font/google';
 import styles from '@/styles/Home.module.css';
 import Navbar from '@/components/navbar/navbar';
 import TopBanner from '@/components/top-banner/top-banner';
+import ProductTile from '@/components/product-tile/product-tile';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,9 +21,18 @@ export default function Home() {
 
       <header className={styles.header}>
         <Navbar />
-        <TopBanner />
+        <TopBanner message={'Your banner message goes here!'} />
       </header>
-      <main></main>
+      <main className={styles['main']}>
+        <div style={{ minHeight: '4rem' }}></div>
+        <h2 className={styles['section-heading']}>Best Sellers</h2>
+        <ProductTile
+          src={'./images/backpack-01.webp'}
+          alt={'image of black backpack'}
+          productName={'TTT Backpack'}
+          price={150.0}
+        ></ProductTile>
+      </main>
     </>
   );
 }
