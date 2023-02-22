@@ -11,7 +11,7 @@
 }
 
 .left {
-  position: relative;
+  position: absolute;
   left: -150%;
 }
 
