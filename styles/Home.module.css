@@ -1,7 +1,7 @@
-.header {
-  /* position: sticky; */
+.main {
+  padding: 1rem;
 }
 
-.main {
-  top: 4rem;
+.section-heading {
+  padding: 0.5rem 0;
 }
