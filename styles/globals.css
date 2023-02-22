@@ -17,3 +17,12 @@ html,
 body {
   height: 200vh;
 }
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: orange 5px auto;
+}

@@ -6,6 +6,8 @@ import styles from '@/styles/Home.module.css';
 import Navbar from '@/components/navbar/navbar';
 import TopBanner from '@/components/top-banner/top-banner';
 import ProductTile from '@/components/product-tile/product-tile';
+import ArrowLeftIcon from '@/components/icons/arrow-left/arrow-left';
+import ArrowRightIcon from '@/components/icons/arrow-right/arrow-right';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -24,14 +26,45 @@ export default function Home() {
         <TopBanner message={'Your banner message goes here!'} />
       </header>
       <main className={styles['main']}>
-        <div style={{ minHeight: '4rem' }}></div>
-        <h2 className={styles['section-heading']}>Best Sellers</h2>
-        <ProductTile
-          src={'./images/backpack-01.webp'}
-          alt={'image of black backpack'}
-          productName={'TTT Backpack'}
-          price={150.0}
-        ></ProductTile>
+        <div style={{ minHeight: '2rem' }}></div>
+        <section>
+          <h2 className={styles['section-heading']}>Just In!</h2>
+          <ProductTile
+            src={'./images/backpack-01.webp'}
+            alt={'image of black backpack'}
+            productName={'TTT Backpack'}
+            price={150.0}
+          ></ProductTile>
+        </section>
+        <section>
+          <h2 className={`${styles['section-heading']}`}> Best Sellers</h2>
+          <ProductTile
+            src={'./images/backpack-01.webp'}
+            alt={'backpack image'}
+            productName={'TTT Backpack'}
+            price={150.0}
+          />
+          <ProductTile
+            src={'./images/longsleeve-01.webp'}
+            alt={'longsleeve image'}
+            productName={'Long Sleeve Shirt'}
+            price={40.0}
+          />
+          <ProductTile
+            src={'./images/screwdriver-01.webp'}
+            alt={'screwdriver image'}
+            productName={'Screw Driver'}
+            price={65.0}
+          />
+          <div className={`${styles['buttons']}`}>
+            <button>
+              <ArrowLeftIcon></ArrowLeftIcon>
+            </button>
+            <button>
+              <ArrowRightIcon></ArrowRightIcon>
+            </button>
+          </div>
+        </section>
       </main>
     </>
   );
