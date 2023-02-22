@@ -16,7 +16,7 @@ const formatter = new Intl.NumberFormat('en-US', {
 });
 
 export default function ProductTile(productInfo: ProductInfo) {
-  const [className, setClassName] = useState(styles['product-wrapper']);
+  const [className, setClassName] = useState(styles['product']);
   const [rightActive, setRightActive] = useState(false);
   const [leftActive, setLeftActive] = useState(false);
 

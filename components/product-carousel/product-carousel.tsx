@@ -3,30 +3,68 @@ import ArrowLeftIcon from '../icons/arrow-left/arrow-left';
 import ArrowRightIcon from '../icons/arrow-right/arrow-right';
 import styles from './product-carousel.module.css';
 import { ProductInfo } from '../product-tile/product-tile';
+import React, { useState } from 'react';
 
 interface Props {
   productInfo: ProductInfo[];
 }
 
 export default function ProductCarousel(props: Props) {
+  const [currentProductIndex, setCurrentProductIndex] = useState(0);
+
+  function handleLeftClick() {
+    if (currentProductIndex === 0) {
+      //do nothing
+      return;
+    }
+    setCurrentProductIndex((currentProductIndex) => currentProductIndex - 1);
+  }
+
+  function handleRightClick() {
+    if (currentProductIndex >= props.productInfo.length) {
+      //do nothing
+      return;
+    }
+    setCurrentProductIndex((currentProductIndex) => currentProductIndex + 1);
+  }
+
   const products = props.productInfo.map((item, index) => {
-    <ProductTile
-      key={index}
-      src={item.src}
-      alt={item.alt}
-      productName={item.productName}
-      price={item.price}
-    ></ProductTile>;
+    let className;
+    if (index < currentProductIndex) {
+      className = `${styles['left']} ${styles['carousel-tile']}`;
+    } else if (index === currentProductIndex) {
+      className = `${styles['current']} ${styles['carousel-tile']}}`;
+    } else {
+      className = `${styles['right']} ${styles['carousel-tile']}`;
+    }
+    return (
+      <div className={className} key={index}>
+        <ProductTile
+          src={item.src}
+          alt={item.alt}
+          productName={item.productName}
+          price={item.price}
+        ></ProductTile>
+      </div>
+    );
   });
 
   return (
     <div className={`${styles['product-carousel']}`}>
-      {products}
+      <div className={`${styles['products']}`}>{products}</div>
       <div className={`${styles['buttons']}`}>
-        <button>
+        <button
+          className={styles['button']}
+          onClick={handleLeftClick}
+          title="left click"
+        >
           <ArrowLeftIcon></ArrowLeftIcon>
         </button>
-        <button>
+        <button
+          className={styles['button']}
+          onClick={handleRightClick}
+          title="right click"
+        >
           <ArrowRightIcon></ArrowRightIcon>
         </button>
       </div>

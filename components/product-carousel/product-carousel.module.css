@@ -1,13 +1,40 @@
 .product-carousel {
   display: flex;
+  flex-direction: column;
+}
+
+.products {
+  display: flex;
+}
+.carousel-tile {
+  transition: 0.5s;
 }
 
 .left {
   position: relative;
-  left: -100%;
+  left: -150%;
+}
+
+.current {
+  position: relative;
+  left: 0;
 }
 
 .right {
-  position: relative;
-  right: 100%;
+  position: absolute;
+  right: 150%;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+  width: auto;
+  min-height: 2rem;
 }

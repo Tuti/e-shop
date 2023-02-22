@@ -9,10 +9,29 @@ import ProductTile from '@/components/product-tile/product-tile';
 import ArrowLeftIcon from '@/components/icons/arrow-left/arrow-left';
 import ArrowRightIcon from '@/components/icons/arrow-right/arrow-right';
 import ProductCarousel from '@/components/product-carousel/product-carousel';
-
-const inter = Inter({ subsets: ['latin'] });
+import { ProductInfo } from '../components/product-tile/product-tile';
 
 export default function Home() {
+  const data: ProductInfo[] = [
+    {
+      src: './images/backpack-01.webp',
+      alt: 'backpack image',
+      productName: 'Backpack',
+      price: 150,
+    },
+    {
+      src: './images/longsleeve-01.webp',
+      alt: 'long sleeve shirt image',
+      productName: 'Long Sleeve Shirt',
+      price: 30,
+    },
+    {
+      src: './images/pins-01.webp',
+      alt: 'pins image',
+      productName: 'Pins',
+      price: 8,
+    },
+  ];
   return (
     <>
       <Head>
@@ -39,7 +58,7 @@ export default function Home() {
         </section>
         <section>
           <h2 className={`${styles['section-heading']}`}> Best Sellers</h2>
-          <ProductCarousel></ProductCarousel>
+          <ProductCarousel productInfo={data}></ProductCarousel>
         </section>
       </main>
     </>

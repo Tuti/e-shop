@@ -16,6 +16,7 @@
 html,
 body {
   height: 200vh;
+  background-color: #faf9f6;
 }
 
 button {
