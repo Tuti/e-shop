@@ -8,6 +8,7 @@ import TopBanner from '@/components/top-banner/top-banner';
 import ProductTile from '@/components/product-tile/product-tile';
 import ArrowLeftIcon from '@/components/icons/arrow-left/arrow-left';
 import ArrowRightIcon from '@/components/icons/arrow-right/arrow-right';
+import ProductCarousel from '@/components/product-carousel/product-carousel';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -38,32 +39,7 @@ export default function Home() {
         </section>
         <section>
           <h2 className={`${styles['section-heading']}`}> Best Sellers</h2>
-          <ProductTile
-            src={'./images/backpack-01.webp'}
-            alt={'backpack image'}
-            productName={'TTT Backpack'}
-            price={150.0}
-          />
-          <ProductTile
-            src={'./images/longsleeve-01.webp'}
-            alt={'longsleeve image'}
-            productName={'Long Sleeve Shirt'}
-            price={40.0}
-          />
-          <ProductTile
-            src={'./images/screwdriver-01.webp'}
-            alt={'screwdriver image'}
-            productName={'Screw Driver'}
-            price={65.0}
-          />
-          <div className={`${styles['buttons']}`}>
-            <button>
-              <ArrowLeftIcon></ArrowLeftIcon>
-            </button>
-            <button>
-              <ArrowRightIcon></ArrowRightIcon>
-            </button>
-          </div>
+          <ProductCarousel></ProductCarousel>
         </section>
       </main>
     </>
