@@ -30,10 +30,14 @@ export default function ProductTile(productInfo: ProductInfo) {
         src={productInfo.src}
         alt={productInfo.alt}
       ></img>
-      <span className={styles['product-name']}>{productInfo.productName}</span>
-      <span className={styles['product-price']}>
-        {formatter.format(productInfo.price)}
-      </span>
+      <div className={`${styles['product-info']}`}>
+        <span className={styles['product-name']}>
+          {productInfo.productName}
+        </span>
+        <span className={styles['product-price']}>
+          {formatter.format(productInfo.price)}
+        </span>
+      </div>
     </Link>
   );
 }

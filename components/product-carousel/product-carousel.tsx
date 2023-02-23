@@ -31,10 +31,13 @@ export default function ProductCarousel(props: Props) {
   const products = props.productInfo.map((item, index) => {
     let className;
     if (index < currentProductIndex) {
+      console.log('less than current index');
       className = `${styles['left']} ${styles['carousel-tile']}`;
     } else if (index === currentProductIndex) {
+      console.log('equals index');
       className = `${styles['current']} ${styles['carousel-tile']}}`;
     } else {
+      console.log('greater than index');
       className = `${styles['right']} ${styles['carousel-tile']}`;
     }
     return (
@@ -50,8 +53,8 @@ export default function ProductCarousel(props: Props) {
   });
 
   return (
-    <div className={`${styles['product-carousel']}`}>
-      <div className={`${styles['products']}`}>{products}</div>
+    <div className={`${styles['container']}`}>
+      {products}
       <div className={`${styles['buttons']}`}>
         <button
           className={styles['button']}

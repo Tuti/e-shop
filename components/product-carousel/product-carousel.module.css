@@ -1,18 +1,21 @@
-.product-carousel {
+.container {
   display: flex;
   flex-direction: column;
+  max-width: 100%;
 }
 
 .products {
   display: flex;
 }
+
 .carousel-tile {
-  transition: 0.5s;
+  transition: 1s;
+  max-width: 100%;
 }
 
 .left {
   position: absolute;
-  left: -150%;
+  left: -200%;
 }
 
 .current {
@@ -22,7 +25,7 @@
 
 .right {
   position: absolute;
-  right: 150%;
+  right: 200%;
 }
 
 .buttons {

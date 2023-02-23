@@ -15,8 +15,8 @@
 
 html,
 body {
-  height: 200vh;
   background-color: #faf9f6;
+  margin: 0 0 4rem 0;
 }
 
 button {
