@@ -41,7 +41,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header className={styles.header}>
+      <header>
         <Navbar />
         <TopBanner message={'Your banner message goes here!'} />
       </header>
@@ -56,7 +56,7 @@ export default function Home() {
             price={150.0}
           ></ProductTile>
         </section>
-        <section>
+        <section className={styles['section']}>
           <h2 className={`${styles['section-heading']}`}> Best Sellers</h2>
           <ProductCarousel productInfo={data}></ProductCarousel>
         </section>

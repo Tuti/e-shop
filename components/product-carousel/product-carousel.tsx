@@ -21,7 +21,7 @@ export default function ProductCarousel(props: Props) {
   }
 
   function handleRightClick() {
-    if (currentProductIndex >= props.productInfo.length) {
+    if (currentProductIndex === props.productInfo.length - 1) {
       //do nothing
       return;
     }
@@ -29,19 +29,19 @@ export default function ProductCarousel(props: Props) {
   }
 
   const products = props.productInfo.map((item, index) => {
-    let className;
-    if (index < currentProductIndex) {
-      console.log('less than current index');
-      className = `${styles['left']} ${styles['carousel-tile']}`;
-    } else if (index === currentProductIndex) {
-      console.log('equals index');
-      className = `${styles['current']} ${styles['carousel-tile']}}`;
-    } else {
-      console.log('greater than index');
-      className = `${styles['right']} ${styles['carousel-tile']}`;
-    }
+    let className = '';
+    // if (index < currentProductIndex) {
+    //   console.log('less than current index');
+    //   className = `${styles['hidden']} ${styles['tile']}`;
+    // } else if (index === currentProductIndex) {
+    //   console.log('equals index');
+    //   className = `${styles['current']} ${styles['tile']}}`;
+    // } else {
+    //   console.log('greater than index');
+    //   className = `${styles['hidden']} ${styles['tile']}`;
+    // }
     return (
-      <div className={className} key={index}>
+      <div className={styles['tile']} key={index}>
         <ProductTile
           src={item.src}
           alt={item.alt}
@@ -54,7 +54,7 @@ export default function ProductCarousel(props: Props) {
 
   return (
     <div className={`${styles['container']}`}>
-      {products}
+      <div className={styles['tiles']}>{products}</div>
       <div className={`${styles['buttons']}`}>
         <button
           className={styles['button']}
