@@ -1,15 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import Head from 'next/head';
-import Image from 'next/image';
-import { Inter } from '@next/font/google';
 import styles from '@/styles/Home.module.css';
 import Navbar from '@/components/navbar/navbar';
 import TopBanner from '@/components/top-banner/top-banner';
 import ProductTile from '@/components/product-tile/product-tile';
-import ArrowLeftIcon from '@/components/icons/arrow-left/arrow-left';
-import ArrowRightIcon from '@/components/icons/arrow-right/arrow-right';
-import ProductCarousel from '@/components/product-carousel/product-carousel';
+import ProductCarousel from '@/components/product-row/product-carousel';
 import { ProductInfo } from '../components/product-tile/product-tile';
+import { useEffect } from 'react';
+import { writeUserData } from '@/firebase/rtdb';
 
 export default function Home() {
   const data: ProductInfo[] = [
@@ -32,6 +30,11 @@ export default function Home() {
       price: 8,
     },
   ];
+
+  useEffect(() => {
+    writeUserData('randID', 'testname', 21);
+  });
+
   return (
     <>
       <Head>
@@ -41,7 +44,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header>
+      <header className={styles.header}>
         <Navbar />
         <TopBanner message={'Your banner message goes here!'} />
       </header>
