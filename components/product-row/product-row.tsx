@@ -1,15 +1,16 @@
 import ProductTile from '../product-tile/product-tile';
 import ArrowLeftIcon from '../icons/arrow-left/arrow-left';
 import ArrowRightIcon from '../icons/arrow-right/arrow-right';
-import styles from './product-carousel.module.css';
+import styles from './product-row.module.css';
 import { ProductInfo } from '../product-tile/product-tile';
 import React, { useState } from 'react';
 
 interface Props {
   productInfo: ProductInfo[];
+  sectionHeading: string;
 }
 
-export default function ProductCarousel(props: Props) {
+export default function ProductRow(props: Props) {
   const [currentProductIndex, setCurrentProductIndex] = useState(0);
 
   function handleLeftClick() {
@@ -54,6 +55,7 @@ export default function ProductCarousel(props: Props) {
 
   return (
     <div className={`${styles['container']}`}>
+      <div className={styles['section-heading']}></div>
       <div className={styles['tiles']}>{products}</div>
       <div className={`${styles['buttons']}`}>
         <button

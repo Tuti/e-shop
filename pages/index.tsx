@@ -4,12 +4,18 @@ import styles from '@/styles/Home.module.css';
 import Navbar from '@/components/navbar/navbar';
 import TopBanner from '@/components/top-banner/top-banner';
 import ProductTile from '@/components/product-tile/product-tile';
-import ProductCarousel from '@/components/product-row/product-carousel';
+import ProductRow from '@/components/product-row/product-row';
 import { ProductInfo } from '../components/product-tile/product-tile';
-import { useEffect } from 'react';
-import { writeUserData } from '@/firebase/rtdb';
+import { useEffect, useState } from 'react';
+import { getProducts } from '@/firebase/rtdb';
+import { rejects } from 'assert';
+import { db } from '@/firebase/firebase';
+import { get, ref, child } from 'firebase/database';
+import Image from 'next/image';
 
 export default function Home() {
+  const [sectionData, setSectionData] = useState<any>('test');
+
   const data: ProductInfo[] = [
     {
       src: './images/backpack-01.webp',
@@ -31,9 +37,27 @@ export default function Home() {
     },
   ];
 
+  function clicked() {
+    console.log({ sectionData });
+  }
+
   useEffect(() => {
-    writeUserData('randID', 'testname', 21);
-  });
+    const dbRef = ref(db);
+    get(child(dbRef, 'landing-page-products'))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          return snapshot.val();
+        } else {
+          console.log('no data available');
+        }
+      })
+      .then((data) => {
+        setSectionData(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <>
@@ -59,9 +83,13 @@ export default function Home() {
             price={150.0}
           ></ProductTile>
         </section>
+        <button onClick={clicked}>click me</button>
         <section className={styles['section']}>
           <h2 className={`${styles['section-heading']}`}> Best Sellers</h2>
-          <ProductCarousel productInfo={data}></ProductCarousel>
+          {/* <ProductRow
+            sectionHeading={'BestSelling'}
+            productInfo={data}
+          ></ProductRow> */}
         </section>
       </main>
     </>
